@@ -1,50 +1,25 @@
-import SignupPage from './components/page/SignupPage';
-import LoginPage from './components/page/LoginPage';
-import {BrowserRouter, Route, Routes} from "react-router-dom"
-import CreateBlogPage from './components/page/CreateBlogPage';
-import BlogListPage from './components/page/BlogListPage';
-import BlogPage from './components/page/BlogPage';
-import { ToastContainer } from 'react-toastify';
-import Test from './components/page/Test';
-import UpdateBlogPage from './components/page/UpdateBlogPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import UpdateBlog from "./pages/UpdateBlog";
+import CreateBlog from "./pages/CreateBlog";
+import Blog from "./pages/Blog";
 
-function App() {
-  
+export const baseUrl = "https://blog-coderrafat.onrender.com/api/v1";
 
+const App = () => {
   return (
-    <>
-
-    {/* for toast  */}
-    <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      {/* Same as */}
+    <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/test' element={<Test />}  />
-          <Route path='/signup' element={<SignupPage />}   />
-          <Route path='/login' element={<LoginPage />}   />
-          <Route path='/create-blog' element={<CreateBlogPage />} />
-          <Route path='/blog' element={<BlogListPage />}  />
-          <Route  path="/blog/:id" element={<BlogPage />}  />
-          <Route  path="/blog/update/:id" element={<UpdateBlogPage />}  />
-
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/create-blog" element={<CreateBlog />} />
+          <Route path="/update-blog/:id" element={<UpdateBlog />} />
+          <Route path="/blog/:id" element={<Blog />} />
         </Routes>
-      
-      
       </BrowserRouter>
-      
-    </>
+    </div>
   );
-}
+};
 
 export default App;

@@ -1,7 +1,0 @@
-Error = {
-    origin : crudaccount,
-    code : E1000 - E2000,
-    massage : "error message"
-    function : error.stack..match(/at\s+([^\s]+)/)?.[1]
-    orginal : error
-}
